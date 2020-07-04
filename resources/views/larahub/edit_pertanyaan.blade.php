@@ -12,7 +12,7 @@
     <input class="form-control" type="text" name="isi" value="{{ $pertanyaan->isi }}"> <br>
     <input hidden class="form-control" type="text" name="tanggal_dibuat" value="{{ $pertanyaan->tanggal_dibuat }}"> <br>
     <input hidden class="form-control" type="text" name="tanggal_diperbarui" value="{{ \Carbon\Carbon::now() }}"> <br>
-    <button class="btn btn-warning" type="submit">Update Pertanyaan</button>
+    <button class="btn btn-primary" type="submit">Update Pertanyaan</button>
   </form>
 </div>
 

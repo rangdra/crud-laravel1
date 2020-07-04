@@ -31,22 +31,22 @@
               <input hidden name="pertanyaan_id" value="{{ $tanya->id }}">
               <input hidden name="tanggal_dibuat" value="{{ \Carbon\Carbon::now() }}">
               <input hidden name="tanggal_diperbarui" value="{{ \Carbon\Carbon::now() }}">
-              <button type="submit" class="btn btn-primary">submit jawaban</button>
+              <button type="submit" class="btn btn-success">submit jawaban</button>
             </form>
           </td>
           <td>
           <a href="{{ url('/pertanyaan/'.$tanya->id)}}">
-            <button class="btn btn-primary">Detail QnA</button>
+            <button class="btn btn-success">Detail QnA</button>
           </a>
           </td>
           <td>
             <a href="{{ url('/pertanyaan/'.$tanya->id).'/edit'}}">
-              <button class="btn btn-warning">edit</button>
+              <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
             </a> |
             <form method="POST" action="{{ url('/pertanyaan/'.$tanya->id) }}" style="display: inline">
               @csrf
               {{ method_field('delete') }}
-              <button type="submit" class="btn btn-danger">hapus</button>
+              <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
             </form>
             
           </td>
