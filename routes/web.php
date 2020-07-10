@@ -12,15 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('adminlte.master');
+    return view('welcome');
 });
 
-Route::get('/pertanyaan', 'PertanyaanController@index');
-Route::get('/pertanyaan/create', 'PertanyaanController@create');
-Route::post('/pertanyaan', 'PertanyaanController@store');
-Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store');
-Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');
-Route::get('/pertanyaan/{id}', 'PertanyaanController@show');
-Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit');
-Route::put('/pertanyaan/{id}', 'PertanyaanController@update');
-Route::delete('/pertanyaan/{id}', 'PertanyaanController@delete');
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/pertanyaan', 'PertanyaanController@index');
+    Route::get('/pertanyaan/create', 'PertanyaanController@create');
+    Route::post('/pertanyaan', 'PertanyaanController@store');
+    Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store');
+    Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');
+    Route::get('/pertanyaan/{id}', 'PertanyaanController@show');
+    Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit');
+    Route::put('/pertanyaan/{id}', 'PertanyaanController@update');
+    Route::delete('/pertanyaan/{id}', 'PertanyaanController@delete');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
